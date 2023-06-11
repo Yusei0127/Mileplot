@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FollowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/profiles',[ProfileController::class,'index']);
+Route::get('/profiles/introduction', [ProfileController::class, 'create']);
+Route::post('/profiles', [ProfileController::class, 'store']);
+Route::get('/posts/{post}', [ProfileController::class, 'show']);
+Route::get('/profiles/{user}',[ProfileController::class,'index']);
+Route::get('/profiles/{profile}',[ProfileController::class,'index']);
 Route::get('/follows',[FollowController::class,'index']);

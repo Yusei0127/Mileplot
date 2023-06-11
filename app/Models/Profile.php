@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     use HasFactory;
+    protected $fillable = [
+    'icon_url',
+    'head_url',
+    'introduction',
+];
 }
