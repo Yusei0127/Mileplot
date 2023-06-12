@@ -17,13 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('follower_id')->nullable();
             $table->unsignedBigInteger('followee_id')->nullable();
+            $table->string('icon_url');
             $table->timestamps();
-            
-            
-            $table->foreign('follower_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('followee_id')->references('id')->on('users')->onDelete('cascade');
-            
-            $table->unique(['follower_id','followee_id']);
         });
     }
 

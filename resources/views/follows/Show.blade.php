@@ -8,24 +8,19 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>Profile</h1>
-            <div class="username">
-                <h3>名前</h3>
-                <p>{{ $profile->username }}</p>  
+        <h1>Follow</h1>
+            <div class="follower">
+                <h3>フォロー</h3>
+                <p>{{ $follows->follower }}</p>    
             </div>
             @if($profile->icon_url)
         　  <div>
                 <img src="{{ $profile->icon_url }}" alt="画像が読み込めません。"/>
             </div>
             @endif
-            @if($profile->head_url)
-            <div>
-                <img src="{{ $profile->head_url }}" alt="画像が読み込めません。"/>
-            </div>
-            @endif
-            <div class="introduction">
-                <h3>自己紹介</h3>
-                <p>{{ $profile->introduction }}</p>    
+            <div class="followee">
+                <h3>フォロワー</h3>
+                <p>{{ $follows->followee }}</p>    
             </div>
         <div class="footer">
             <a href="/">戻る</a>

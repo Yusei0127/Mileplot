@@ -11,6 +11,7 @@
             <div class="username">
              <h2>名前</h2>
                 <textarea name="username[body]" placeholder="ここに名前を入力"></textarea>
+            <button type="submit" neme="保存" value="store">保存</button>
             </div>
             <div class="image">
         　   <div class="aicon">

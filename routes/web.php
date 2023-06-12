@@ -18,9 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/profiles/introduction', [ProfileController::class, 'create']);
+Route::get('/profiles/create', [ProfileController::class, 'create']);
 Route::post('/profiles', [ProfileController::class, 'store']);
 Route::get('/posts/{post}', [ProfileController::class, 'show']);
 Route::get('/profiles/{user}',[ProfileController::class,'index']);
 Route::get('/profiles/{profile}',[ProfileController::class,'index']);
-Route::get('/follows',[FollowController::class,'index']);
+Route::post('/users/{user}/follow', 'FollowController@follow');
+Route::post('/users/{user}/follow', 'FollowController@unfollow');
