@@ -23,5 +23,6 @@ Route::post('/profiles', [ProfileController::class, 'store']);
 Route::get('/posts/{post}', [ProfileController::class, 'show']);
 Route::get('/profiles/{user}',[ProfileController::class,'index']);
 Route::get('/profiles/{profile}',[ProfileController::class,'index']);
+Route::get('/follows',[FollowController::class,'show']);
 Route::post('/users/{user}/follow', 'FollowController@follow');
 Route::post('/users/{user}/follow', 'FollowController@unfollow');
