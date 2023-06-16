@@ -42,14 +42,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function follower()
+    public function follower():BelongsToMany
     {
-        return $this->belongsToMany('App\User', 'follows', 'follower_id', 'followee_id');
+        return $this->belongsToMany('App\Models\User', 'follows', 'follower_id', 'followee_id')->withTimestamps();
     }
 
-    public function followee()
+    public function followee():BelongsToMany
     {
-        return $this->belongsToMany('App\User', 'follows', 'followee_id', 'follower_id');
+        return $this->belongsToMany('App\Models\User', 'follows', 'followee_id', 'follower_id')->withTimestamps();
     }
-
+    
 }

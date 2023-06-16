@@ -9,7 +9,7 @@
     <body>
         <div class='profile'>
             <h5 class='username'>{{ $user->username }}</h5>
-            <a href="/profiles/{{ $profile->profile }}">"プロフィール"</a>
+            <a href="/profiles/{{ $profile->profile }}">プロフィール</a>
         </div>
     </body>
 </html>

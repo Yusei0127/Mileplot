@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class Type_User extends Model
 {
     use HasFactory;
     protected $fillable = [
-    'username',
-    'icon_url',
-    'head_url',
-    'introduction',
+    'user_id',
+    'type_id',
 ];
 }

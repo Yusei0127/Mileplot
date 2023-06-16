@@ -9,17 +9,17 @@ use Cloudinary;
 
 class ProfileController extends Controller
 {
-    public function index(User $user)
+    public function index(User $user,Profile $profile)
     {
-       return view('/profiles/user')->with(['user' => $user]);
-       return view('/profiles/user')->with(['profile' => $profile]);
+       return view('/profiles/user')->with(['user' => $user,'profile' => $profile]);
     }
     public function create()
     {
        return view('/profiles/create');
     }
-    public function store(Request $request, Profiles $profile)
+    public function store(Request $request, Profile $profile)
     {
+        $input = [];
         $input = $request['create'];
         if($request->file('image')){
          $icon_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
@@ -32,6 +32,7 @@ class ProfileController extends Controller
     public function show(Profile $profile)
     {
         return view('/profiles/show')->with(['profile' => $profile]);
+        return view('/follows/show')->with(['profile' => $profile]);
     }
 
 }

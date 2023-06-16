@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class FollowUser extends Model
 {
     use HasFactory;
     protected $fillable = [
-    'username',
+    'follower_id',
+    'followee_id',
     'icon_url',
-    'head_url',
-    'introduction',
 ];
+
+    protected $table = 'follows';
 }
