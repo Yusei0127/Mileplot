@@ -5,20 +5,20 @@
         <title>Mileplot</title>
     </head>
     <body>
-        <form action="/posts" method="POST">
+        <form action="/types" method="POST">
             @csrf
             <div class="type_goal">
                 <h2>目標</h2>
-                <input type="text" name="type[title]" placeholder="目標"/>
+                <input type="text" name="type[type_goal]" placeholder="ここに目標を入力"/>
+                <button type="submit" neme="保存" value="store">保存</button>
             </div>
             <div class="type_current">
-             <form action="/posts" method="POST">
                  <h2>現状</h2>
-                 <textarea name="current[body]" placeholder="現状"></textarea>
-            　<div class="tutorial">
+                 <textarea name="type[type_current]" placeholder="ここに現状を入力"></textarea>
+        　　 <div class="tutorial">
             　　 <a href="/tutorials">チュートリアル</a>
-        　　　</div>
-        　　　  </form>
+        　　 </div>
+                 <button type="submit" neme="保存" value="store">保存</button>
             </div>
             <input type="submit" value="作成"/>
         </form>
