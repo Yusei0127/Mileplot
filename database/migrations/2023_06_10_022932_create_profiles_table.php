@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('username',50);
-            $table->string('icon_url')->nullable();
-            $table->string('head_url')->nullable();
-            $table->string('introduction',200);
+            $table->string('username',50)->nullable()->change();
+            $table->string('icon_url')->nullable()->change();
+            $table->string('head_url')->nullable()->change();
+            $table->string('introduction',200)->nullable()->change();
             $table->timestamps();
         });
     }

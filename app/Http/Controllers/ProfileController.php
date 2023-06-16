@@ -20,7 +20,7 @@ class ProfileController extends Controller
     public function store(Request $request, Profile $profile)
     {
         $input = [];
-        $input = $request['create'];
+        $input = $request['profile'];
         if($request->file('image')){
          $icon_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
          $head_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();

@@ -26,7 +26,6 @@ Route::get('/profiles', [ProfileController::class, 'show']);
 Route::post('/profiles', [ProfileController::class, 'store']);
 Route::get('/profiles/user/{user}', [ProfileController::class, 'index']);
 Route::get('/follows/user/{user}', [FollowController::class, 'followbutton']);
-Route::post('/follows/user/{user}', [FollowController::class, 'followbutton']);
 Route::get('/follows', [FollowController::class, 'show']);
 Route::post('/follows', [FollowController::class, 'store']);
 Route::controller(FollowController::class)->middleware(['auth'])->group(function(){
@@ -34,7 +33,7 @@ Route::controller(FollowController::class)->middleware(['auth'])->group(function
     Route::get('/users/{user}/unfollow','unfollow')->name('unfollow');
 });
 Route::get('/todos/create', [TodoController::class, 'create']);
-Route::get('/todos',[TodoController::class, 'show']);
+Route::post('/todos',[TodoController::class, 'store']);
 Route::get('/types/create', [TypeController::class, 'create']);
 Route::get('/types', [TypeController::class, 'index']);
 Route::post('/types', [TypeController::class, 'store']);
