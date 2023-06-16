@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('follower_id')->nullable();
             $table->unsignedBigInteger('followee_id')->nullable();
-            $table->string('icon_url');
+            $table->unsignedBigInteger('icon_url')->nullable();
             $table->timestamps();
         });
     }

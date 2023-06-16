@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Models\Follow;
 use Cloudinary;
 
 class FollowController extends Controller
@@ -21,16 +23,22 @@ class FollowController extends Controller
         $follows = FollowUser::where('followee_id', \Auth::user()->id)->where('follower_id', $user->id)->first();
         $follows->delete();
         $followCount = count(FollowUser::where('followee_id', $user->id)->get());
-
         return response()->json(['followCount' => $followCount]);
     }
     
-    public function store(Request $request, Follow $follows)
+    public function store(Request $request, Follows $follows)
     {
-        $icon_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        $input = [];
         $input = $request['follows'];
+        $icon_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
+        $input += ['icon_url' => $icon_url];
         $follows->fill($input)->save();
         return redirect('/follows/' . $follows->id);
+    }
+    
+    public function followbutton(User $user,Follows $follows,Profile $profile)
+    {
+        return view('/follows/followbutton')->with(['user' => $user,'follows' => $follows,'profile'=>$profile]);
     }
     
     public function show(Follows $follows)

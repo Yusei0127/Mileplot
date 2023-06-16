@@ -8,7 +8,12 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>Profile</h1>
+            @if($profile->head_url)
+            <div>
+                <img src="{{ $profile->head_url }}" alt="画像が読み込めません。"/>
+            </div>
+            @endif
+        <h1>プロフィール</h1>
             <div class="username">
                 <h3>名前</h3>
                 <p>{{ $profile->username }}</p>  
@@ -16,11 +21,6 @@
             @if($profile->icon_url)
         　  <div>
                 <img src="{{ $profile->icon_url }}" alt="画像が読み込めません。"/>
-            </div>
-            @endif
-            @if($profile->head_url)
-            <div>
-                <img src="{{ $profile->head_url }}" alt="画像が読み込めません。"/>
             </div>
             @endif
             <div class="introduction">
