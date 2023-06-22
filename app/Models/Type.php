@@ -19,4 +19,19 @@ class Type extends Model
     {
     return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
     }
+    
+    public function users()   
+    {
+    return $this->hasMany(User::class);  
+    }
+    
+    public function tutorial()   
+    {
+    return $this->belongsTo(Tutorial::class);  
+    }
+    
+    public function type_user()   
+    {
+    return $this->belongsTo(Type_User::class);  
+    }
 }

@@ -10,14 +10,16 @@
             @csrf
             <div class="username">
              <h2>名前</h2>
-                <textarea name="profile[username]" placeholder="ここに名前を入力"></textarea>
+                <input type="text" name="profile[username]" placeholder="ここに名前を入力"/>
             <button type="submit" neme="保存" value="store">保存</button>
             </div>
             <div class="image">
         　   <div class="aicon">
+        　       <h2>アイコン画像</h2>
         　       <input type="file" name="aicon">
         　   </div>
         　   <div class="head">
+        　       <h2>ヘッダー画像</h2>
                 <input type="file" name="head">  
              </div>
             </div>

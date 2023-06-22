@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>Follow</h1>
+        <h1>フォロー</h1>
             <div class="follower">
                 <h3>フォロー</h3>
                 <p>{{ $follows->follower }}</p>    

@@ -12,7 +12,7 @@ class TypeController extends Controller
     public function index(Type $types,Step $steps)
     {
        return view('/types/index')->with(['type' => $types->getPaginateByLimit()]);
-       return view('/types/index')->with(['type' => $types->get(),'step' => $steps]);
+       return view('/types/index')->with(['type' => $types ->get() ,'step' => $steps ->get()]);
     } 
     public function store(Request $request, Type $types)
     {
@@ -26,6 +26,6 @@ class TypeController extends Controller
     }
     public function show(Types $types,Step $steps)
     {
-       return view('/types/show')->with(['type' => $types,'step' => $steps]);
+       return view('/types/show')->with(['type' => $types ->get() ,'step' => $steps ->get()]);
     }
 }

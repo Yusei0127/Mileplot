@@ -14,7 +14,6 @@ class TodoController extends Controller
     }
     public function store(Request $request, Todo $todo)
     {
-        $input = [];
         $input = $request['todo'];
         $todo->fill($input)->save();
         return redirect('/todos/' . $todo->id);

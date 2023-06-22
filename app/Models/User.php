@@ -42,14 +42,43 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function follower():BelongsToMany
+    public function follower()
     {
         return $this->belongsToMany('App\Models\User', 'follows', 'follower_id', 'followee_id')->withTimestamps();
     }
 
-    public function followee():BelongsToMany
+    public function followee()
     {
         return $this->belongsToMany('App\Models\User', 'follows', 'followee_id', 'follower_id')->withTimestamps();
     }
     
+    public function profile()   
+    {
+    return $this->hasOne(Profile::class);  
+    }
+    
+    public function tutorial()   
+    {
+    return $this->belongsTo(Tutorial::class);  
+    }
+    
+    public function type_user()   
+    {
+    return $this->belongsTo(Type_User::class);  
+    }
+    
+    public function type()   
+    {
+    return $this->belongsTo(Type::class);  
+    }
+    
+    public function todo()   
+    {
+    return $this->belongsTo(Todo::class);  
+    }
+    
+    public function home()   
+    {
+    return $this->hasOne(Home::class);  
+    }
 }

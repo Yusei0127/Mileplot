@@ -17,15 +17,13 @@ use App\Http\Controllers\TodoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/profiles/create', [ProfileController::class, 'create']);
-Route::get('/profiles', [ProfileController::class, 'show']);
+Route::get('/profiles/{profile}', [ProfileController::class, 'show']);
 Route::post('/profiles', [ProfileController::class, 'store']);
 Route::get('/profiles/user/{user}', [ProfileController::class, 'index']);
-Route::get('/follows/user/{user}', [FollowController::class, 'followbutton']);
+Route::get('/follows/{user}', [FollowController::class, 'index']);
 Route::get('/follows', [FollowController::class, 'show']);
 Route::post('/follows', [FollowController::class, 'store']);
 Route::controller(FollowController::class)->middleware(['auth'])->group(function(){

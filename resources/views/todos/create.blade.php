@@ -9,7 +9,7 @@
             @csrf
             <div class="content">
                  <h2>Todoリスト追加</h2>
-                 <textarea name="todo[content]" placeholder="ここにTodoを入力する"></textarea>>
+                 <input type="text" name="todo[content]" placeholder="ここにTodoを入力する"/>
             </div>
             <input type="submit" value="作成"/>
         </form>

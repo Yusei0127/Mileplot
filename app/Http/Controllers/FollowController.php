@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Profile;
 use App\Models\Follow;
 use Cloudinary;
 
@@ -26,7 +27,7 @@ class FollowController extends Controller
         return response()->json(['followCount' => $followCount]);
     }
     
-    public function store(Request $request, Follows $follows)
+    public function store(Request $request, Follow $follows)
     {
         $input = [];
         $input = $request['follows'];
@@ -36,13 +37,13 @@ class FollowController extends Controller
         return redirect('/follows/' . $follows->id);
     }
     
-    public function followbutton(User $user,Follows $follows,Profile $profile)
+    public function index(User $user,Follow $follows,Profile $profile)
     {
-        return view('/follows/followbutton')->with(['user' => $user,'follows' => $follows,'profile'=>$profile]);
+        return view('/follows/index')->with(['user' => $user,'follows' => $follows,'profile'=>$profile]);
     }
     
-    public function show(Follows $follows)
+    public function show(Follow $follows,Profile $profile)
     {
-        return view('/follows/show')->with(['follows' => $follows]);
+        return view('/follows/show')->with(['follows' => $follows,'profile'=>$profile]);
     }
 }
