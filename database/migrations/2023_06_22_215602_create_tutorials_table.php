@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('type_users', function (Blueprint $table) {
+        Schema::create('tutorials', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable()->constrained();
-            $table->unsignedBigInteger('tutorial_id')->nullable()->constrained();
-            $table->unsignedBigInteger('step_id')->nullable()->constrained();
-            $table->unsignedBigInteger('edit_goal')->nullable()->constrained();
-            $table->unsignedBigInteger('edit_current')->nullable()->constrained();
-            $table->unsignedBigInteger('edit_content')->nullable()->constrained();
             $table->unsignedBigInteger('type_id')->nullable()->constrained();
             $table->timestamps();
         });
@@ -33,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_users');
+        Schema::dropIfExists('tutorials');
     }
 };
