@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Step;
+use App\Models\Tutorial;
 use App\Models\Type;
 
 class TypeController extends Controller
 {
-    public function index(Type $types,Step $steps)
+    public function index(Type $types,Step $steps,Tutorial $tutorials)
     {
        return view('/types/index')->with(['type' => $types->getPaginateByLimit()]);
-       return view('/types/index')->with(['type' => $types ->get() ,'step' => $steps ->get()]);
+       return view('/types/index')->with(['type' => $types ->get() ,'step' => $steps ->get(),'tutorial' => $tutorials ->get()]);
     } 
     public function store(Request $request, Type $types)
     {
@@ -24,8 +25,8 @@ class TypeController extends Controller
     {
        return view('/types/create');
     }
-    public function show(Types $types,Step $steps)
+    public function show(Types $types,Step $steps,Tutorial $tutorials)
     {
-       return view('/types/show')->with(['type' => $types ->get() ,'step' => $steps ->get()]);
+       return view('/types/show')->with(['type' => $types ->get() ,'step' => $steps ->get(),'tutorial' => $tutorials ->get()]);
     }
 }
