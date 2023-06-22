@@ -19,7 +19,6 @@ class ProfileController extends Controller
     }
     public function store(Request $request, Profile $profile)
     {
-        $input = [];
         $input = $request['profile'];
         if($request->file('image')){
          $icon_url = Cloudinary::upload($request->file('image')->getRealPath())->getSecurePath();
@@ -32,7 +31,6 @@ class ProfileController extends Controller
     public function show(Profile $profile)
     {
         return view('/profiles/show')->with(['profile' => $profile]);
-        return view('/follows/show')->with(['profile' => $profile]);
     }
 
 }

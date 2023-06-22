@@ -14,7 +14,7 @@
             </div>
             <div class="type_current">
                  <h2>現状</h2>
-                 <textarea name="type[type_current]" placeholder="ここに現状を入力"></textarea>
+                 <input type="text" name="type[type_current]" placeholder="ここに現状を入力"/>
         　　 <div class="tutorial">
             　　 <a href="/tutorials">チュートリアル</a>
         　　 </div>

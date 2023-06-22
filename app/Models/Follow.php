@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FollowUser extends Model
+class Follow extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -15,4 +15,9 @@ class FollowUser extends Model
 ];
 
     protected $table = 'follows';
+    
+    public function profile()   
+    {
+    return $this->belongsTo(Profile::class);  
+    }
 }

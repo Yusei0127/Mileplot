@@ -12,4 +12,12 @@ class Todo extends Model
     'user_id',
     'content',
 ];
+    public function users()   
+    {
+    return $this->hasMany(User::class);  
+    }
+    public function home()   
+    {
+    return $this->belongsTo(Home::class);  
+    }
 }

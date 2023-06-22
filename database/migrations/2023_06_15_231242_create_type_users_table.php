@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('model_users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('model_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable()->constrained();
+            $table->unsignedBigInteger('model_id')->nullable()->constrained();
             $table->timestamps();
         });
     }
