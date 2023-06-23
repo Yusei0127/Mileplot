@@ -27,10 +27,25 @@ class TypeController extends Controller
     {
        return view('/types/create');
     }
+    public function edit(Type $types)
+    {
+        return view('/types/edit')->with(['type' => $types,'step' => $steps ,'tutorial' => $tutorials]);
+    }
+    public function update(TypeRequest $request, Type $types)
+    {
+        $input_type = $request['type'];
+        $types->fill($input_type)->save();
+        return redirect('/types/' . $types->id);
+    }
     public function show(Types $types,Step $steps,Tutorial $tutorials,Nice $nice)
     {
-       $nice=Nice::where('type_id', $type->id)->where('user_id', auth()->user()->id)->first();
+       $nice=Nice::where('type_id', $types->id)->where('user_id', auth()->user()->id)->first();
        return view('/types/show')->with(['type' => $types ->get() ,'step' => $steps ->get(),'tutorial' => $tutorials ->get(),'nice' => $nice ->get()]);
+    }
+    public function delete(Type $types)
+    {
+       $types->delete();
+       return redirect('/');
     }
 
 }
