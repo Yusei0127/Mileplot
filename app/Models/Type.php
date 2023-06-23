@@ -34,4 +34,5 @@ class Type extends Model
     {
     return $this->belongsTo(Type_User::class);  
     }
+    
 }

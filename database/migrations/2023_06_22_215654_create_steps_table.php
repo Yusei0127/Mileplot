@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('tutorial_id')->nullable()->constrained();
             $table->string('content',50)->nullable()->change();
             $table->string('schedule_date');
+            $table->string('achievement_date');
             $table->timestamps();
         });
     }
