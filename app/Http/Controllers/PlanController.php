@@ -12,6 +12,16 @@ class PlanController extends Controller
     {
        return view('/plans/create');
     }
+    public function edit(Plan $plan)
+    {
+        return view('/plan/edit')->with(['plan' => $plan]);
+    }
+    public function update(PlanRequest $request, Plan $plan)
+    {
+        $input_plan = $request['plan'];
+        $plan->fill($input_plan)->save();
+        return redirect('/plans/' . $plan->id);
+    }
     public function store(Request $request, Plan $plan)
     {
         $input = $request['plan'];
@@ -21,6 +31,11 @@ class PlanController extends Controller
     public function show(Plan $plan)
     {
         return view('/plans/show')->with(['plan' => $plan]);
+    }
+    public function delete(Plan $plan)
+    {
+        $plan->delete();
+        return redirect('/');
     }
 
 }

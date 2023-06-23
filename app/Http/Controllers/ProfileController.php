@@ -9,13 +9,19 @@ use Cloudinary;
 
 class ProfileController extends Controller
 {
-    public function index(User $user,Profile $profile)
-    {
-       return view('/profiles/user')->with(['user' => $user,'profile' => $profile]);
-    }
     public function create()
     {
        return view('/profiles/create');
+    }
+    public function edit(Profile $profile)
+    {
+        return view('/profile/edit')->with(['profile' => $profile]);
+    }
+    public function update(ProfileRequest $request, Profile $profile)
+    {
+        $input_profile = $request['profile'];
+        $profile->fill($input_profile)->save();
+        return redirect('/profiles/' . $profile->id);
     }
     public function store(Request $request, Profile $profile)
     {
