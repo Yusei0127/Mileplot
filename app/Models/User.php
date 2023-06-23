@@ -62,11 +62,6 @@ class User extends Authenticatable
     return $this->belongsTo(Tutorial::class);  
     }
     
-    public function type_user()   
-    {
-    return $this->belongsTo(Type_User::class);  
-    }
-    
     public function type()   
     {
     return $this->belongsTo(Type::class);  
@@ -81,4 +76,15 @@ class User extends Authenticatable
     {
     return $this->hasOne(Home::class);  
     }
+ 
+    public function type_users() 
+    {
+    return $this->hasOne(Type_User::class);
+    }
+    
+    public function calender()   
+    {
+    return $this->belongsTo(Calender::class);  
+    }
+    
 }

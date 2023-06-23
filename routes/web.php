@@ -36,3 +36,5 @@ Route::get('/types/create', [TypeController::class, 'create']);
 Route::get('/types', [TypeController::class, 'index']);
 Route::post('/types', [TypeController::class, 'store']);
 Route::get('/types/{type}', [TypeController::class, 'show']);
+Route::get('/types/{type}/nice', [Type_UserController::class, 'nice'])->name('nice');
+Route::get('/types/{type}/unnice', [Type_UserController::class, 'unnice'])->name('unnice');

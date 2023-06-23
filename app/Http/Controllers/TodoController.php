@@ -17,9 +17,5 @@ class TodoController extends Controller
         $todo->fill($input)->save();
         return redirect('/todos/' . $todo->id);
     }
-    public function show(Todo $todo)
-    {
-        return view('/todos/show')->with(['todo' => $todo]);
-    }
 
 }

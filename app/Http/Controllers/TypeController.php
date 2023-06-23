@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Step;
 use App\Models\Tutorial;
 use App\Models\Type;
+use App\Models\Type_User;
+
 
 class TypeController extends Controller
 {
@@ -25,8 +27,10 @@ class TypeController extends Controller
     {
        return view('/types/create');
     }
-    public function show(Types $types,Step $steps,Tutorial $tutorials)
+    public function show(Types $types,Step $steps,Tutorial $tutorials,Nice $nice)
     {
-       return view('/types/show')->with(['type' => $types ->get() ,'step' => $steps ->get(),'tutorial' => $tutorials ->get()]);
+       $nice=Nice::where('type_id', $type->id)->where('user_id', auth()->user()->id)->first();
+       return view('/types/show')->with(['type' => $types ->get() ,'step' => $steps ->get(),'tutorial' => $tutorials ->get(),'nice' => $nice ->get()]);
     }
+
 }

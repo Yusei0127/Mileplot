@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('plans', function (Blueprint $table) {
-            $table->id();
+            $table->id()->date('d');
             $table->unsignedBigInteger('calender_id')->nullable()->constrained();
             $table->string('time')->date('H/i');
             $table->string('schedule');
